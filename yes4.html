@@ -20,6 +20,7 @@
             cursor: pointer;
             transition: transform 0.3s ease, opacity 0.3s ease;
             user-select: none;
+            display: inline-block;
         }
 
         .wrong-heart {
@@ -57,19 +58,20 @@
 
                     if (i === correctHeartIndex) {
                         heart.addEventListener("click", () => {
-                            window.location.href = "yes5.html"; // Redirect to final page
+                            alert("You found the real heart! ❤️");
+                            window.location.href = "yes5.html"; // Redirect to the final page
                         });
                     } else {
                         heart.addEventListener("click", (e) => {
                             e.target.classList.add("wrong-heart");
                             setTimeout(() => {
-                                e.target.style.opacity = "0.5"; // Instead of fully disappearing, it fades slightly
-                                e.target.style.pointerEvents = "none"; // Disable clicking again
+                                e.target.style.opacity = "0.5"; // Fades instead of disappearing
+                                e.target.style.pointerEvents = "none"; // Prevents clicking again
                             }, 300);
                         });
                     }
 
-                    heartsContainer.appendChild(heart);
+                    heartsContainer.appendChild(heart); // Make sure hearts are added properly!
                 }
             });
         </script>
