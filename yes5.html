@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Challenge - Prove Your Love! ❤️</title>
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Tenor GIF: Cute Blushing Love -->
+        <div class="tenor-gif-embed" data-postid="12588779839829588311" data-share-method="host" data-aspect-ratio="1.05957" data-width="100%"><a href="https://tenor.com/view/peach-and-goma-gif-12588779839829588311">Peach And Goma GIF</a>from <a href="https://tenor.com/search/peach+and+goma-gifs">Peach And Goma GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+        <h1>Ab Aagya Final Moment baby! ❤️</h1>
+        <p>Ab woh likho Jo appa sab se jayda bolte hai ek dusre ko! 😘</p>
+
+        <input type="text" id="loveInput" placeholder="Type here..." />
+
+        <button class="submit-btn" onclick="checkLove()">Submit ❤️</button>
+
+        <p id="message"></p>
+
+        <script>
+            function checkLove() {
+                let inputText = document.getElementById("loveInput").value.trim().toLowerCase();
+                if (inputText === "i love you") {
+                    window.location.href = "yes.html"; // Redirect to final page
+                } else {
+                    document.getElementById("message").innerText = "Wrong! You must type it exactly! 😡";
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

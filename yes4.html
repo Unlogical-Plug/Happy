@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Final Challenge - Prove Your Love! ❤️</title>
-    <link rel="stylesheet" href="main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 4 - Type My Name… Blindfolded! 🤪</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div class="container">
-        <!-- Tenor GIF: Cute Blushing Love -->
-        <div class="tenor-gif-embed" data-postid="12588779839829588311" data-share-method="host" data-aspect-ratio="1.05957" data-width="100%"><a href="https://tenor.com/view/peach-and-goma-gif-12588779839829588311">Peach And Goma GIF</a>from <a href="https://tenor.com/search/peach+and+goma-gifs">Peach And Goma GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <!-- Tenor GIF: Funny Typing Confusion -->
+        <div class="tenor-gif-embed" data-postid="8267598202456453294" data-share-method="host" data-aspect-ratio="1.43931" data-width="100%"><a href="https://tenor.com/view/nerds-nerds-universe-3look-bang-head-doh-gif-8267598202456453294">Nerds Nerds Universe GIF</a>from <a href="https://tenor.com/search/nerds-gifs">Nerds GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
-        <h1>Ab Aagya Final Moment baby! ❤️</h1>
-        <p>Ab woh likho Jo appa sab se jayda bolte hai ek dusre ko! 😘</p>
+        <h1>Aakhe Band karke mera naam likho! 🤪</h1>
+        <p>Dhyan se likhna, Code mein koi dikkat bhi ho sakti hai baby! 😂</p>
 
-        <input type="text" id="loveInput" placeholder="Type here..." />
+        <input type="text" id="nameInput" placeholder="Type here..." oninput="scrambleText()" />
 
-        <button class="submit-btn" onclick="checkLove()">Submit ❤️</button>
+        <button class="submit-btn" onclick="checkName()">Submit ✍️</button>
 
         <p id="message"></p>
 
         <script>
-            function checkLove() {
-                let inputText = document.getElementById("loveInput").value.trim().toLowerCase();
-                if (inputText === "i love you") {
-                    window.location.href = "yes.html"; // Redirect to final page
+            const myName = "Himanshu"; // Change this to your name
+            let attempts = 0;
+
+            function scrambleText() {
+                let inputField = document.getElementById("nameInput");
+                let typed = inputField.value;
+
+                if (typed.length > 1) {
+                    inputField.value = shuffleString(typed);
+                }
+            }
+
+            function shuffleString(str) {
+                return str.split("").sort(() => Math.random() - 0.5).join("");
+            }
+
+            function checkName() {
+                let inputText = document.getElementById("nameInput").value.trim().toLowerCase();
+                if (inputText === myName.toLowerCase()) {
+                    window.location.href = "yes5.html"; // Redirect to final page
                 } else {
-                    document.getElementById("message").innerText = "Wrong! You must type it exactly! 😡";
+                    attempts++;
+                    if (attempts >= 3) {
+                        document.getElementById("message").innerText = `Hint: My name starts with "${myName.charAt(0)}" 😉`;
+                    } else {
+                        document.getElementById("message").innerText = "Oops! Try again… Baby words Apna Jaddu dikha rhe hai! 😆";
+                    }
                 }
             }
         </script>
