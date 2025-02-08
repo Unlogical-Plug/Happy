@@ -1,48 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ask Her Out</title>
+    <title>Final Challenge - Prove Your Love! ❤️</title>
     <link rel="stylesheet" href="main.css" />
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <!-- Tenor GIF: Cute thinking math confusion -->
-      <div
-        class="tenor-gif-embed"
-        data-postid="24137410"
-        data-share-method="host"
-        data-aspect-ratio="1"
-        data-width="100%"
-      >
-        <a href="https://tenor.com/view/think-thinking-cat-cute-math-gif-24137410">Thinking Math GIF</a>
-        from <a href="https://tenor.com/search/thinking-math-gifs">Tenor</a>
-      </div>
-      <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <!-- Tenor GIF: Cute Blushing Love -->
+        <div class="tenor-gif-embed" data-postid="12588779839829588311" data-share-method="host" data-aspect-ratio="1.05957" data-width="100%"><a href="https://tenor.com/view/peach-and-goma-gif-12588779839829588311">Peach And Goma GIF</a>from <a href="https://tenor.com/search/peach+and+goma-gifs">Peach And Goma GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
-      <h1>If 1+1 = 2, then 2+2 = ? 🤔</h1>
+        <h1>Ab Aagya Final Moment baby! ❤️</h1>
+        <p>Ab woh likho Jo appa sab se jayda bolte hai ek dusre ko! 😘</p>
 
-      <div class="options">
-        <button class="option" onclick="checkAnswer(4)">4 ✅</button>
-        <button class="option" onclick="wrongAnswer()">5 ❌</button>
-        <button class="option" onclick="wrongAnswer()">22 🤡</button>
-        <button class="option" onclick="wrongAnswer()">143! ❤️</button>
-      </div>
+        <input type="text" id="loveInput" placeholder="Type here..." />
 
-      <p id="message"></p>
+        <button class="submit-btn" onclick="checkLove()">Submit ❤️</button>
 
-      <script>
-        function checkAnswer(answer) {
-          if (answer === 4) {
-            window.location.href = "yes5.html"; // Proceed to next step
-          }
-        }
+        <p id="message"></p>
 
-        function wrongAnswer() {
-          document.getElementById("message").innerText = "Haha, Itna Assan sawal nahi aata, phir se koshish kro challo! 😂";
-        }
-      </script>
+        <script>
+            function checkLove() {
+                let inputText = document.getElementById("loveInput").value.trim().toLowerCase();
+                if (inputText === "i love you") {
+                    window.location.href = "yes.html"; // Redirect to final page
+                } else {
+                    document.getElementById("message").innerText = "Wrong! You must type it exactly! 😡";
+                }
+            }
+        </script>
     </div>
-  </body>
+</body>
 </html>

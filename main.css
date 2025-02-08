@@ -74,6 +74,65 @@
   opacity: 0;
   transform: scale(0);
 }
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.option {
+  font-size: 22px; /* Increased text size */
+  padding: 15px 40px; /* Bigger buttons */
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #ff9a9e;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s ease;
+  box-shadow: 0.3rem 0.6rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.option:hover {
+  background: #ff6a88;
+  transform: scale(1.05);
+}
+
+.option:active {
+  transform: scale(0.98);
+  box-shadow: 0.2rem 0.4rem 0.8rem rgba(0, 0, 0, 0.15);
+}
+
+input {
+  font-size: 18px;
+  padding: 12px;
+  width: 80%;
+  max-width: 300px; /* Good size for mobile */
+  text-align: center;
+  border: 2px solid #ff9a9e;
+  border-radius: 8px;
+  outline: none;
+}
+
+.submit-btn {
+  font-size: 20px;
+  padding: 12px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #ff6a88;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #ff3b6f;
+  transform: scale(1.05);
+}
 
 @keyframes heart-animation {
   0% {
