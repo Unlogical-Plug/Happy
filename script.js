@@ -21,14 +21,19 @@ const codeInput = document.getElementById('code');
 const submitBtn = document.getElementById('submit-btn');
 const resultDiv = document.getElementById('result');
 
-const secretCodes = ['dukhi Aatma', 'Dukhi aatma', 'dukhi aatma', 'Dukhi Aatma']; // Add multiple secret codes here
+// Multiple secret codes (case-insensitive)
+const secretCodes = ['dukhi aatma', 'Baby', 'Meethi Rasmalai']; 
 const nextPageUrl = 'main.html'; // URL of the new page
+
+// Ensure input is visible (not a password field)
+codeInput.setAttribute('type', 'text');
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
-	const userInput = codeInput.value.trim();
+	const userInput = codeInput.value.trim().toLowerCase(); // Convert input to lowercase
 
-	if (secretCodes.includes(userInput)) {
+	// Convert all secret codes to lowercase and check
+	if (secretCodes.some(code => code.toLowerCase() === userInput)) {
 		resultDiv.innerHTML = 'Yes, Thats My Baby';
 		window.location.href = nextPageUrl; // Redirect to new page
 	} else {
