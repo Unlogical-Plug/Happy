@@ -3,53 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge 4 - Type My Name… Blindfolded! 🤪</title>
+    <title>Bonus - Click the Right Heart! 💖</title>
     <link rel="stylesheet" href="main.css">
+    <style>
+        .hearts-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .heart {
+            font-size: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .wrong-heart {
+            animation: shake 0.3s ease-in-out;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- Tenor GIF: Funny Typing Confusion -->
-        <div class="tenor-gif-embed" data-postid="8267598202456453294" data-share-method="host" data-aspect-ratio="1.43931" data-width="100%"><a href="https://tenor.com/view/nerds-nerds-universe-3look-bang-head-doh-gif-8267598202456453294">Nerds Nerds Universe GIF</a>from <a href="https://tenor.com/search/nerds-gifs">Nerds GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <!-- Tenor GIF: Love Challenge -->
+        <div class="tenor-gif-embed" data-postid="19985019" data-share-method="host" data-aspect-ratio="1.02759" data-width="100%">
+            <a href="https://tenor.com/view/love-hearts-gif-19985019">Love Hearts GIF</a> from <a href="https://tenor.com/search/love-hearts-gifs">Love Hearts GIFs</a>
+        </div> 
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
-        <h1>Aakhe Band karke mera naam likho! 🤪</h1>
-        <p>Dhyan se likhna, Code mein koi dikkat bhi ho sakti hai baby! 😂</p>
+        <h1>Click the Right Heart! 💖</h1>
+        <p>Only one heart is real! Can you find it? 😘</p>
 
-        <input type="text" id="nameInput" placeholder="Type here..." oninput="scrambleText()" />
-
-        <button class="submit-btn" onclick="checkName()">Submit ✍️</button>
-
-        <p id="message"></p>
+        <div class="hearts-container" id="heartsContainer">
+            <!-- Hearts will be generated dynamically -->
+        </div>
 
         <script>
-            const myName = "Himanshu"; // Change this to your name
-            let attempts = 0;
+            document.addEventListener("DOMContentLoaded", () => {
+                const heartsContainer = document.getElementById("heartsContainer");
+                const totalHearts = 8; // Number of hearts
+                const correctHeartIndex = Math.floor(Math.random() * totalHearts);
 
-            function scrambleText() {
-                let inputField = document.getElementById("nameInput");
-                let typed = inputField.value;
+                for (let i = 0; i < totalHearts; i++) {
+                    let heart = document.createElement("span");
+                    heart.innerHTML = "💖";
+                    heart.classList.add("heart");
 
-                if (typed.length > 1) {
-                    inputField.value = shuffleString(typed);
-                }
-            }
-
-            function shuffleString(str) {
-                return str.split("").sort(() => Math.random() - 0.5).join("");
-            }
-
-            function checkName() {
-                let inputText = document.getElementById("nameInput").value.trim().toLowerCase();
-                if (inputText === myName.toLowerCase()) {
-                    window.location.href = "yes5.html"; // Redirect to final page
-                } else {
-                    attempts++;
-                    if (attempts >= 3) {
-                        document.getElementById("message").innerText = `Hint: My name starts with "${myName.charAt(0)}" 😉`;
+                    if (i === correctHeartIndex) {
+                        heart.addEventListener("click", () => {
+                            window.location.href = "yes5.html"; // Redirect to final page
+                        });
                     } else {
-                        document.getElementById("message").innerText = "Oops! Try again… Baby words Apna Jaddu dikha rhe hai! 😆";
+                        heart.addEventListener("click", (e) => {
+                            e.target.classList.add("wrong-heart");
+                            setTimeout(() => e.target.style.opacity = "0", 300);
+                        });
                     }
+
+                    heartsContainer.appendChild(heart);
                 }
-            }
+            });
         </script>
     </div>
 </body>
