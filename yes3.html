@@ -14,17 +14,17 @@
       <h1>Ager 1+1 = 2, Toh 2+2 = ? 🤔</h1>
 
       <div class="options">
-        <button class="option" onclick="checkAnswer(4)">4 ✅</button>
+        <button class="option" onclick="checkAnswer()">4 ✅</button>
         <button class="option" onclick="wrongAnswer()">5 ❌</button>
         <button class="option" onclick="wrongAnswer()">22 🤡</button>
-        <button class="option" onclick="wrongAnswer()">143! ❤️</button>
+        <button class="option" onclick="wrongAnswer(143)">143! hayye ❤️</button>
       </div>
 
       <p id="message"></p>
 
       <script>
         function checkAnswer(answer) {
-          if (answer === 4) {
+          if (answer === 143) {
             window.location.href = "yes4.html"; // Proceed to next step
           }
         }
