@@ -12,12 +12,14 @@
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
+            max-width: 400px;
         }
 
         .heart {
             font-size: 40px;
             cursor: pointer;
             transition: transform 0.3s ease, opacity 0.3s ease;
+            user-select: none;
         }
 
         .wrong-heart {
@@ -35,12 +37,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Tenor GIF: Love Challenge -->
-        <div class="tenor-gif-embed" data-postid="19985019" data-share-method="host" data-aspect-ratio="1.02759" data-width="100%">
-            <a href="https://tenor.com/view/love-hearts-gif-19985019">Love Hearts GIF</a> from <a href="https://tenor.com/search/love-hearts-gifs">Love Hearts GIFs</a>
-        </div> 
-        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-
         <h1>Click the Right Heart! 💖</h1>
         <p>Only one heart is real! Can you find it? 😘</p>
 
@@ -51,7 +47,7 @@
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const heartsContainer = document.getElementById("heartsContainer");
-                const totalHearts = 8; // Number of hearts
+                const totalHearts = 9; // Number of hearts
                 const correctHeartIndex = Math.floor(Math.random() * totalHearts);
 
                 for (let i = 0; i < totalHearts; i++) {
@@ -66,7 +62,10 @@
                     } else {
                         heart.addEventListener("click", (e) => {
                             e.target.classList.add("wrong-heart");
-                            setTimeout(() => e.target.style.opacity = "0", 300);
+                            setTimeout(() => {
+                                e.target.style.opacity = "0.5"; // Instead of fully disappearing, it fades slightly
+                                e.target.style.pointerEvents = "none"; // Disable clicking again
+                            }, 300);
                         });
                     }
 
