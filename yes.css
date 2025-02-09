@@ -39,10 +39,10 @@ header {
 /* List Items */
 ul {
   list-style: none;
-  width: 100%;
+  width: 80%;
   height: 80%;
   position: relative;
-  perspective: 900px;
+  perspective: 5000px;
   transform-style: preserve-3d;
 }
 
