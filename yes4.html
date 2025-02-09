@@ -3,77 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bonus - Click the Right Heart! 💖</title>
+    <title>Click the Heart in 0.7 Seconds! 💖</title>
     <link rel="stylesheet" href="main.css">
     <style>
-        .hearts-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            max-width: 400px;
-        }
-
         .heart {
-            font-size: 40px;
+            font-size: 50px;
             cursor: pointer;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            user-select: none;
-            display: inline-block;
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: transform 0.05s ease; /* Faster appearance */
         }
 
-        .wrong-heart {
-            animation: shake 0.3s ease-in-out;
+        .heart:hover {
+            transform: scale(1.3);
         }
 
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
+        .btn-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .game-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .game-btn:hover {
+            background: darkred;
+        }
+
+        #message {
+            font-size: 18px;
+            margin-top: 15px;
+            text-align: center;
+            color: #d9534f;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Click the Right Heart! 💖</h1>
-        <p>Only one heart is real! Can you find it? 😘</p>
-
-        <div class="hearts-container" id="heartsContainer">
-            <!-- Hearts will be generated dynamically -->
+        
+        <h1>Next challenge! Press the Heart ❤️</h1>
+        <p>Niche wala Button Dabao. Ek heart aaye ga usko **0.7 Seconds** mein Click karna. Ab dekhte hai apki real speed! 😜</p>
+        <div class="tenor-gif-embed" data-postid="8472798" data-share-method="host" data-aspect-ratio="0.859223" data-width="100%"><a href="https://tenor.com/view/heart-i-love-you-gif-8472798">Heart I Love You GIF</a>from <a href="https://tenor.com/search/heart-gifs">Heart GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <div class="btn-container">
+            <button class="game-btn" onclick="startChallenge()">Press to Show the Heart!</button>
         </div>
 
+        <span class="heart" id="heart" onclick="winGame()">💖</span>
+
+        <p id="message"></p>
+
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const heartsContainer = document.getElementById("heartsContainer");
-                const totalHearts = 9; // Number of hearts
-                const correctHeartIndex = Math.floor(Math.random() * totalHearts);
+            let attempts = 0;
+            let heartVisible = false;
 
-                for (let i = 0; i < totalHearts; i++) {
-                    let heart = document.createElement("span");
-                    heart.innerHTML = "💖";
-                    heart.classList.add("heart");
+            function startChallenge() {
+                let heart = document.getElementById("heart");
+                let message = document.getElementById("message");
 
-                    if (i === correctHeartIndex) {
-                        heart.addEventListener("click", () => {
-                            alert("You found the real heart! ❤️");
-                            window.location.href = "yes5.html"; // Redirect to the final page
-                        });
-                    } else {
-                        heart.addEventListener("click", (e) => {
-                            e.target.classList.add("wrong-heart");
-                            setTimeout(() => {
-                                e.target.style.opacity = "0.5"; // Fades instead of disappearing
-                                e.target.style.pointerEvents = "none"; // Prevents clicking again
-                            }, 300);
-                        });
+                heart.style.display = "block";
+                heartVisible = true;
+
+                setTimeout(() => {
+                    if (heartVisible) {
+                        heart.style.display = "none";
+                        heartVisible = false;
+                        attempts++;
+
+                        if (attempts < 3) {
+                            message.innerText = "Oops! Phir se Koshish Kro baby! 😅";
+                        } else if (attempts < 5) {
+                            message.innerText = "Yaar! Koshish Karlo ache se! 🤭";
+                        } else {
+                            message.innerText = "Ek Click he toh karna tha baby... 😭";
+                        }
                     }
+                }, 500); // Heart disappears in 0.7s
+            }
 
-                    heartsContainer.appendChild(heart); // Make sure hearts are added properly!
+            function winGame() {
+                if (heartVisible) {
+                    heartVisible = false;
+                    alert("Wow! Apne kaar dikhaya! 🎉 Chalo ab final challenge per chalte hai...");
+                    window.location.href = "yes5.html"; // Proceed to the final challenge
                 }
-            });
+            }
         </script>
     </div>
 </body>
