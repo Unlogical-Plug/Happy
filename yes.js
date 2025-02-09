@@ -147,8 +147,11 @@ function init() {
   });
 
   ulEl.style.setProperty("--rotateDegrees", rotate);
-  adjustDay(0);
+  daynumber = 0; // Start from the first item
+  activeIndex = 0; // Ensure first item is selected
+  adjustDay(0); // Set the correct starting position
 }
+
 
 function adjustDay(nr) {
   daynumber += nr;
